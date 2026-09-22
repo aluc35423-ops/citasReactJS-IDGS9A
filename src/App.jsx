@@ -1,31 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import{ useState } from 'react'
+import './css/App.css'
 
-export default function App() {
+function App() {
+  const [visible, modalVisible] = useState("false")
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>¡Hola, Mundo!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <>
+    <main className='container'>
+      <h1 className='titulo'>
+        Administrador de Citas Veterinario <span className='titulo-bold'>Veterinario</span>
+      </h1>
+      <p>{visible}</p>
+      <button
+      type='button'
+      className='btn-nueva-cita'
+      onClick={() => modalVisible("true")}
+      >
+        <span className='btn-texto-nueva-cita'>Nueva Cita</span>
+      </button>
+    </main>
+    </>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333333',
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666666',
-  },
-});
+export default App
